@@ -4,12 +4,48 @@
 // getTotal(inventory: [{article: '🍔', price: 15, quantity: '1'}, {article: '🍟', price: 10, quantity: '2'}])
 // it should return the total. for the example data 👆 it should be: 35. (15x1 + 10x2)
 
+function getTotal(articlesTotal){
+    let total = 0;
+    articlesTotal.forEach(article => {
+        total += article.price * Number(article.quantity);
+    });
+    return "El total del pedido es de: " + total + " pesos" 
+}
+
+console.log(getTotal([{article: '🍔', price: 15, quantity: '1'}, {article: '🍟', price: 10, quantity: '2'}]))
+
 // 02 - Function
 // countBanana(inventory:['🥑','🍌','🥭', '🍌']})
+
+function countBanana(inventory){
+    let count = 0;
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i] ==='🍌'){
+            count++;
+        }
+    }
+    return `Hay una en total ${count} bananas`
+}
+
+console.log(countBanana(['🥑','🍌','🥭', '🍌']))
 
 // 03- Function
 //   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //   console.log(filterEvenNumbers(numbers)); // Output: [2, 4, 6, 8, 10]
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function evenNumbers() {
+    let evenNumber = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 == 0) {
+            evenNumber.push(numbers[i]);
+        }
+    }
+    return `Los numeros pares son: ${evenNumber}`;
+}
+
+console.log(evenNumbers());
 
 // 04 - function
 //   const numbers = [1, 2, 3, 4, 5];
