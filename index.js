@@ -50,10 +50,36 @@ console.log(evenNumbers());
 // 04 - function
 //   const numbers = [1, 2, 3, 4, 5];
 //   console.log(squareNumbers(numbers)); // Output: [1, 4, 9, 16, 25]
+const numbers1 = [1, 2, 3, 4, 5];
+
+function squareNumbers(){
+    let squareNumbers = [];
+    numbers1.forEach(article => {
+        article = Math.pow(article,2);
+        squareNumbers.push(article);
+    });
+    return squareNumbers 
+}
+
+console.log(squareNumbers(numbers1));
 
 // 05 - function
 //   const numbers = [1, 2, 3, 4, 5];
 //   console.log(findMax(numbers)); // Output: 5
+
+const numbers2 = [1, 2, 3, 4, 5];
+
+function findMax(numbers2){
+    let maximo = numbers2[0];
+    for(let i = 1; i < numbers2.length; i++){
+        if(numbers2[i] > maximo){
+            maximo = numbers2[i];
+        }
+    }
+    return `El numero más grande es: ${maximo}`;
+}
+
+console.log(findMax(numbers2));
 
 // 06 - function
 //   const people = [
@@ -63,6 +89,19 @@ console.log(evenNumbers());
 //     { name: "El Chengue", age: 49 }
 //   ];
 //   console.log(calculateAverageAge(people)); // Output: 32.5
+
+function calculateAverageAge(people){
+    let age = 0;
+    let amountOfPeople = people.length;
+
+    people.forEach(person => {
+        age += person.age;
+    });
+
+    return age/amountOfPeople
+}
+
+console.log(calculateAverageAge([{ name: "Juan", age: 25 },{ name: "Carla", age: 30 },{ name: "Lucia", age: 35 },{ name: "El Chengue", age: 49 }]));
 
 // 07 - function  combinedHobbies(persons)
 // Function to combine hobbies from all persons
@@ -94,6 +133,23 @@ console.log(evenNumbers());
 //   'photography 📸', 'traveling ✈️', 'swimming 🏊‍♂️',
 //   'dancing 💃', 'singing 🎤', 'running 🏃‍♀️'
 // ]
+
+function combinedHobbies(persons) {
+    let combinedHobbies = [];
+    persons.forEach(person => {
+        person.hobbies.forEach(hobby => {
+            combinedHobbies.push(hobby);
+        });
+    });
+    return combinedHobbies;
+}
+
+console.log(combinedHobbies([
+    { name: 'Paula', hobbies: ['reading 📚', 'gardening 🌱', 'painting 🎨'] },
+    { name: 'Martin', hobbies: ['cycling 🚴', 'cooking 🍳', 'hiking 🥾'] },
+    { name: 'Juan', hobbies: ['photography 📸', 'traveling ✈️', 'swimming 🏊‍♂️'] },
+    { name: 'Veronica', hobbies: ['dancing 💃', 'singing 🎤', 'running 🏃‍♀️'] }
+]));
 
 // 08 - function printChemicalInfo(chemicals)
 // const chemicals = [
