@@ -151,6 +151,53 @@ console.log(combinedHobbies([
     { name: 'Veronica', hobbies: ['dancing 💃', 'singing 🎤', 'running 🏃‍♀️'] }
 ]));
 
+const chemicals = [{
+    compoundId: 'CHEM001',
+    name: 'Aspirin',
+    formula: 'C9H8O4',
+    description: 'Aspirin is a common medication used to reduce pain and inflammation.',
+    molecularWeight: '180.16 g/mol',
+    meltingPoint: '135°C',
+    boilingPoint: '140°C',
+    solubility: 'Slightly soluble in water'},
+    {
+    compoundId: 'CHEM002',
+    name: 'Caffeine',
+    formula: 'C8H10N4O2',
+    description: 'Caffeine is a stimulant found in coffee, tea, and various energy drinks.',
+    molecularWeight: '194.19 g/mol',
+    meltingPoint: '238°C',
+    boilingPoint: '178°C',
+    solubility: 'Freely soluble in water'},
+    {
+    compoundId: 'CHEM003',
+    name: 'Ethanol',
+    formula: 'C2H6O',
+    description: 'Ethanol, also known as alcohol, is commonly used as a solvent and in alcoholic beverages.',
+    molecularWeight: '46.07 g/mol',
+    meltingPoint: '-114.1°C',
+    boilingPoint: '78.37°C',
+    solubility: 'Miscible with water'}
+    ];
+
+function printChemicalInfo(chemicals){
+    chemicals.forEach(chemicals => {
+        console.log("+-----------------------------------------------------------------------------------------+")
+        console.log("|","CompoundID:",chemicals.compoundId,"|");
+        console.log("|","Name:",chemicals.name,"|");
+        console.log("|","Formula:",chemicals.formula,"|");
+        console.log("|","Description:",chemicals.description,"|");
+        console.log("|","molecularWeight:",chemicals.molecularWeight,"|");
+        console.log("|","molecularWeight:",chemicals.meltingPoint,"|");
+        console.log("|","boilingPoint:", chemicals.boilingPoint,"|");
+        console.log("|","solubility:",chemicals.solubility,"|");
+        console.log("+-----------------------------------------------------------------------------------------+")
+        ;
+    });
+}
+
+console.log(printChemicalInfo(chemicals));
+
 // 08 - function printChemicalInfo(chemicals)
 // const chemicals = [
 //     {
@@ -228,6 +275,26 @@ console.log(combinedHobbies([
 // Remove duplicated elements from the  guests list
 // Expected getGetUniqueGuestList(guestList)) ['Alice 🙆🏻‍♀️', 'Bob 🙍🏼', 'Charlie 👨🏼‍🚀', 'David 🤵🏿‍♂️']
 
+const guestList = ['Alice 🙆🏻‍♀️', 'Bob 🙍🏼', 'Charlie 👨🏼‍🚀', 'Alice 🙆🏻‍♀️', 'David 🤵🏿‍♂️'];
+
+function getGetUniqueGuestList(guestList){
+    let newlist = []
+    for(let x = 0; x < guestList.length; x++) {
+        if (!newlist.includes(guestList[x])) {
+            newlist.push(guestList[x])
+        }
+    }
+    return newlist
+}
+
+console.log(getGetUniqueGuestList(guestList));
+
+function getGetUniqueGuestList1(guestList){
+    return [...new Set(guestList)]
+} 
+
+console.log(getGetUniqueGuestList1(guestList));
+
 // 10 - function showUserProfiles(user)
 // User data
 
@@ -252,6 +319,39 @@ console.log(combinedHobbies([
 
 //   showUserProfile(user1); // Expected output: 'carol.smith, carol.smith77'
 //   showUserProfile(user2); // Expected output: 'jane.smith@example.com'
+
+const user1 = {
+    id: 1,
+    name: 'Carol Smith',
+    profile: {
+        social: {
+            twitter: 'carol.smith',
+            facebook: 'carol.smith77'
+        }
+    }
+};
+
+const user2 = {
+    id: 2,
+    name: 'Jane Smith',
+    profile: {
+        email: 'jane.smith@example.com'
+    }
+};
+
+function showUserProfile(users){
+    users.forEach(user => {
+        console.log("ID:",user.id);
+        console.log("Name:",user.name);
+        console.log("Profile",user.profile);
+        console.log("Twitter:", user.profile?.social?.twitter || 'N/A');
+        console.log("Facebook:", user.profile?.social?.facebook || 'N/A');
+        console.log("Email:", user.profile?.email || 'N/A');
+    });
+}
+
+console.log(showUserProfile([user1, user2]));
+
 
 // 11 - function sortLeaderBoardByScoreDesc(leaderBoard)
 // The function should sort the players by score as it's displayed on the expected output
@@ -281,6 +381,25 @@ console.log(combinedHobbies([
 //   { player: 'Bobby', score: 11 }
 // ]
 
+const leaderBoard = [
+    { player: "John", score: 80 },
+    { player: "Charlie", score: 20 },
+    { player: "Julio", score: 50 },
+    { player: "Bob", score: 80 },
+    { player: "Bobby", score: 11 },
+    { player: "Tommy", score: 43 },
+    { player: "Eric", score: 99 },
+    { player: "Alice", score: 100 },
+    { player: "Alfred", score: 30 },
+];
+
+function sortLeaderBoardByScoreDesc(leaderBoard){
+    return leaderBoard.sort((a,b) => b.score - a.score); //b - a te ordena de mayor a menor, y a - b de menor a mayor
+}
+
+console.log(sortLeaderBoardByScoreDesc(leaderBoard));
+
+
 // 12 - function
 
 // function getTopFiveWorstPlayers(leaderBoard)
@@ -295,6 +414,12 @@ console.log(combinedHobbies([
 // ]
 
 // NOTE: ⚠️ original array shouldn't be modified. or we are missing players.
+
+function getTopFiveWorstPlayers(leaderBoard){
+    return leaderBoard.sort((a,b) => a.score - b.score).slice(0, 5);
+}
+
+console.log(getTopFiveWorstPlayers(leaderBoard));
 
 // 13 - function safeCopy()
 // const companyHierarchy = {
@@ -345,3 +470,42 @@ console.log(combinedHobbies([
 
 //   console.log('Copied Company Hierarchy with Modifications:');
 //   console.log(copiedHierarchy);
+
+const companyHierarchy = {
+    name: 'Company',
+    departments: [{
+        name: 'Engineering',
+        head: 'Alice',
+        subDepartments: [{
+            name: 'Backend',
+            head: 'Bob',
+            employees: ['Charlie', 'David']
+        },
+            {
+            name: 'Frontend',
+            head: 'Eve',
+            employees: ['Frank', 'Grace']
+            }
+        ]
+        },
+        {
+            name: 'Sales',
+            head: 'Henry',
+            employees: ['Isaac', 'Jane']
+        }
+        ]
+    };
+
+function safeCopy(obj){
+    const clone = JSON.parse(JSON.stringify(companyHierarchy));
+
+    copiedHierarchy.departments.push({
+        name: 'Marketing',
+        head: 'Karen',
+        employees: ['Liam', 'Mia']
+        });
+
+    return copiedHierarchy
+}
+
+console.log(safeCopy());
