@@ -496,16 +496,20 @@ const companyHierarchy = {
         ]
     };
 
-function safeCopy(obj){
-    const clone = JSON.parse(JSON.stringify(companyHierarchy));
-
-    copiedHierarchy.departments.push({
-        name: 'Marketing',
-        head: 'Karen',
-        employees: ['Liam', 'Mia']
-        });
-
-    return copiedHierarchy
+function safeCopy(obj) {
+    return JSON.parse(JSON.stringify(obj));
 }
 
-console.log(safeCopy());
+const copiedHierarchy = safeCopy(companyHierarchy);
+    
+copiedHierarchy.departments.push({
+    name: 'Marketing',
+    head: 'Karen',
+    employees: ['Liam', 'Mia']
+});
+
+console.log('Original Company Hierarchy:');
+console.log(companyHierarchy);
+
+console.log('Copied Company Hierarchy with Modifications:');
+console.log(copiedHierarchy);
